@@ -1,0 +1,20 @@
+{
+  "rewrites": [
+    {
+      "source": "/recipe-api/deepseek/:path*",
+      "destination": "https://api.deepseek.com/v1/:path*"
+    },
+    {
+      "source": "/recipe-api/dashscope/:path*",
+      "destination": "https://dashscope.aliyuncs.com/compatible-mode/v1/:path*"
+    },
+    {
+      "source": "/recipe-api/zhipu/:path*",
+      "destination": "https://open.bigmodel.cn/api/paas/v4/:path*"
+    },
+    {
+      "source": "/recipe-api/moonshot/:path*",
+      "destination": "https://api.moonshot.cn/v1/:path*"
+    }
+  ]
+}
