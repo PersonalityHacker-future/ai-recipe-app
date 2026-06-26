@@ -2,26 +2,16 @@
   command = "npm run build"
   publish = "dist"
 
+[functions]
+  node_bundler = "esbuild"
+
+# Route all API calls through the serverless function (avoids redirect proxy timeouts)
 [[redirects]]
-  from = "/recipe-api/deepseek/*"
-  to = "https://api.deepseek.com/v1/:splat"
+  from = "/recipe-api/*"
+  to = "/.netlify/functions/recipe-proxy"
   status = 200
 
-[[redirects]]
-  from = "/recipe-api/dashscope/*"
-  to = "https://dashscope.aliyuncs.com/compatible-mode/v1/:splat"
-  status = 200
-
-[[redirects]]
-  from = "/recipe-api/zhipu/*"
-  to = "https://open.bigmodel.cn/api/paas/v4/:splat"
-  status = 200
-
-[[redirects]]
-  from = "/recipe-api/moonshot/*"
-  to = "https://api.moonshot.cn/v1/:splat"
-  status = 200
-
+# SPA fallback
 [[redirects]]
   from = "/*"
   to = "/index.html"
